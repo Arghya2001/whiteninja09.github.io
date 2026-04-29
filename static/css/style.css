@@ -1,0 +1,272 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Adjust this value based on your navbar height */
+section {
+    scroll-margin-top: 70px; 
+}
+
+.hero-section {
+    min-height: 80vh; /* Takes up most of the screen */
+    display: flex;
+    align-items: center;
+}
+
+.hero-visual {
+    position: relative;
+    z-index: 1;
+}
+
+.floating-box {
+    width: 80%;
+    margin: 0 auto;
+    transition: transform 0.5s ease;
+}
+
+/* Subtle hover animation */
+.floating-box:hover {
+    transform: translateY(-15px) rotate(2deg);
+}
+
+.display-3 {
+    letter-spacing: -1px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.progress-bar {
+    background-color: #0d6efd; /* Your theme color */
+}
+
+/* Styling for the About section */
+#about {
+    padding: 80px 0;
+}
+
+/* Make the button stand out */
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+    font-weight: 600;
+    padding: 10px 30px;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+/* Add some shadow to the image */
+.shadow {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+}
+
+.glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px); /* This creates the frost effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.glass-box:hover {
+    transform: scale(1.05);
+}
+
+/* Styling for the Profile Card */
+.rounded-4 {
+    border-radius: 1.5rem !important;
+}
+
+/* Ensure image doesn't overflow */
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+/* Subtle Hover Effect for the entire section */
+#about .card {
+    transition: transform 0.4s ease;
+}
+
+#about .card:hover {
+    transform: scale(1.02);
+}
+
+
+.project-item {
+    transition: all 0.4s ease;
+}
+
+/* Add a hover zoom effect */
+.card:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
+
+/* Style for the active filter button */
+.btn-outline-primary.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.transition-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+/* Card Styling */
+.edu-card {
+    background: #ffffff;
+    border-left: 5px solid #e9ecef; /* Subtle grey accent */
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+/* Hover Effect: Blue Accent */
+.edu-card:hover {
+    border-left: 5px solid #0d6efd;
+    transform: translateY(-8px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.1) !important;
+}
+
+/* "Active" Card Styling (For M.Tech) */
+.active-card {
+    border-left: 5px solid #198754 !important; /* Green for ongoing */
+    background: #f8fff9;
+}
+
+/* Icon Box */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background: #e7f1ff;
+    color: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+/* Preloader Overlay */
+.preloader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Matches your white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Keeps it on top of everything */
+    transition: opacity 0.5s ease; /* Makes the fade-out smooth */
+}
+
+/* Class to handle the fade effect */
+.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Allows clicking through after hiding */
+}
+
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none; /* Hidden by default */
+    background-color: #0d6efd; /* Your theme primary color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #0a58ca;
+    transform: translateY(-5px); /* Gentle float effect on hover */
+}
+
+footer a:hover {
+    color: #0d6efd !important; /* Changes to your primary blue on hover */
+    transition: 0.3s;
+}
+
+/* Footer Link Hover Effect */
+.hover-blue {
+    transition: color 0.3s ease;
+}
+
+.hover-blue:hover {
+    color: #0d6efd !important; /* Bootstrap Primary Blue */
+    padding-left: 5px;
+}
+
+/* Map border styling */
+.map-container:hover {
+    border-color: #0d6efd !important;
+    transition: border-color 0.3s ease;
+}
+
+/* Make the button look cleaner */
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+#togglerIcon {
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Add a nice hover effect to the mobile button */
+.navbar-toggler:hover #togglerIcon {
+    color: #0d6efd; /* Your Primary Blue */
+}
+
+/* Gold Accent Border for Achievements */
+.achievement-card {
+    border-top: 4px solid #ffc107; 
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 2rem rgba(255, 193, 7, 0.15) !important;
+}
+
+/* Gold Icon Box */
+.icon-box-gold {
+    width: 45px;
+    height: 45px;
+    background: #fff8e1; /* Very light gold */
+    color: #ffc107;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}

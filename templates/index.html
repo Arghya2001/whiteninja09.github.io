@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" id="favicon">
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" style="background-image: url('{{ url_for('static', filename='images/background.gif') }}'); background-size: cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
+    <div id="preloader" class="preloader-overlay">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">@rghya Kamal Mishra</a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbarToggler">
+                <i class="fas fa-bars" id="togglerIcon"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="display-3 fw-bold mb-3">Hi, <br> I'm <span style="color:#8782ee;">Arghya<span></h1>
+                    <p class="lead text-muted mb-4" style="color:blue;">Passionate Full Stack Developer crafting seamless digital experiences using Python, Flask, and modern web tech.</p>
+                    
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="#contact" class="btn btn-primary btn-lg px-4">Hire Me</a>
+                        <a href="#projects" class="btn btn-warning btn-lg px-4">View Work</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-5 mt-lg-0 text-center">
+                    <img src="{{ url_for('static', filename='images/Developer.gif') }}" 
+                        alt="Arghya" 
+                        class="img-fluid rounded-circle shadow" 
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-5">
+        <section id="about" class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <div class="card border-0 shadow-lg p-3 rounded-4">
+                            <img src="/static/images/profile.png" alt="Arghya" class="img-fluid rounded-4 shadow-sm mb-3">
+                            <h4 class="fw-bold">Arghya Kamal Mishra</h4>
+                            <p class="text-muted">Full Stack Developer</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="https://github.com/Arghya2001" class="btn btn-outline-primary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://linkedin.com/in/arghyakamalmishra" class="btn btn-outline-primary btn-sm"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                <a href="https://instagram.com/Arghya09_" class="btn btn-outline-primary btn-sm"><i class="fab fa-instagram"></i>Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 ps-md-5">
+                        <h2 class="fw-bold mb-4 fw-bold"><i class="fas fa-user"></i> About <span style="color:#8782ee;"> Me </span></h2>
+                        <p class="lead text-secondary" style="text-align:justify;">
+                            "Passionate about building scalable web solutions that bridge the gap between complex logic and user-friendly design."
+                        </p>
+                        <p style="text-align:justify;">
+                            Driven by the challenge of building scalable web solutions, I combine a strong foundation in backend development with a specialization in modern tech stacks. After honing my skills as a <strong>PHP Developer from 2023 to 2024</strong>, I transitioned into working with <strong>Python, Flask, and Machine Learning</strong>. Currently, I am a Developer at  <strong>Softech ERP Solutions</strong>, where I focus on building robust enterprise software. Whether I'm tackling algorithmic challenges or optimizing web performance, I am committed to writing clean, efficient code that solves real-world problems.
+                        </p>
+
+                        <div class="row mt-4 mb-4">
+                            <div class="col-4">
+                                <h4 class="text-primary fw-bold">4</h4>
+                                <small class="text-muted">Projects</small>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="text-primary fw-bold">1</h4>
+                                <small class="text-muted">Year Exp.</small>
+                            </div>
+                            <div class="col-4">
+                                <h4 class="text-primary fw-bold">Active</h4>
+                                <small class="text-muted">Learner</small>
+                            </div>
+                        </div>
+
+                        <a href="/static/documents/Arghya's Resume.pdf" class="btn btn-warning btn-lg px-4" download>
+                            <i class="fas fa-download me-2"></i>Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <section id="education" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold"><i class="fas fa-graduation-cap"></i>Academic <span style="color:#8782ee;">Journey</span></h2>
+                
+                <div class="row g-4 justify-content-center">
+                    {% for edu in education %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="edu-card p-4 h-100 shadow-sm border-0 {% if 'M.Tech' in edu.degree %}active-card{% endif %}">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h6 class="text-muted mb-0">{{ edu.year_range }}</h6>
+                                    {% if 'M.Tech' in edu.degree %}
+                                        <span class="badge bg-success rounded-pill">Ongoing</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <h5 class="fw-bold mb-1">
+                                <a href="{{ edu.website_link }}" target="_blank" class="text-decoration-none text-dark">
+                                    {{ edu.institution }}
+                                </a>
+                            </h5>
+                            <p class="text-primary mb-2">{{ edu.degree }}</p>
+                            <p class="small text-secondary mb-0" style="color:green!important;">{{ edu.percentage }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+        <section id="skills" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold" style="margin-top:5px;"> <i class="fas fa-code"></i> Technical <span style="color:#8782ee;"> Stack </span></h2>
+                <div class="row">
+                    {% set categories = skills|map(attribute='category')|unique|list %}
+                    {% for category in categories %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm p-3">
+                            <h5 class="text-primary">{{ category }}</h5>
+                            <ul class="list-unstyled mt-3">
+                                {% for skill in skills if skill.category == category %}
+                                <li class="mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <span>{{ skill.name }}</span>
+                                        <small class="text-muted">{{ skill.level }}%</small>
+                                    </div>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar" style="width: {{ skill.level }}%"></div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold"><i class="fas fa-database"></i> Featured <span style="color:#8782ee;"> Projects </span></h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for project in projects %}
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 transition-hover">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">{{ project.title }}</h5>
+                                <p class="card-text text-muted">{{ project.description }}</p>
+                                <div class="mt-3">
+                                    <span class="badge bg-light text-dark border">{{ project.tech_stack }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold"><i class="fas fa-trophy"></i> Achievements & <span style="color:#8782ee;"> Certifications </span> </h2>
+                
+                <div class="row g-4">
+                    {% for ach in achievements %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="achievement-card p-4 h-100 shadow-sm border-0">
+                            <div class="icon-box-gold mb-3">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h5 class="fw-bold">{{ ach.title }}</h5>
+                            <p class="text-primary mb-1 fw-bold small">{{ ach.issuer }}</p>
+                            <p class="text-muted small mb-2">{{ ach.date }}</p>
+                            <p class="text-secondary small">{{ ach.description }}</p>
+                            {% if ach.link %}
+                            <a href="{{ ach.link }}" target="_blank" class="btn btn-sm btn-outline-warning mt-2">View Certificate</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4 fw-bold"><i class="fas fa-headphones"></i> Let's <span style="color:#8782ee;"> Connect </span> </h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form id="contactForm">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                                <label for="email">Email address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone" maxlength=10 required>
+                                <label for="phone">Phone</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" name="message" placeholder="Message" style="height: 150px" required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                        </form>
+                        <div id="responseMessage" class="mt-3 text-center fw-bold"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+        <footer class="bg-dark text-light py-5 mt-5">
+            <div class="container">
+                <div class="row g-4">
+                    
+                    <div class="col-md-4">
+                        <h5>Arghya Kamal Mishra</h5>
+                        <p class="text-secondary small mt-3">Full Stack Developer passionate about building robust enterprise applications and solving complex algorithmic problems.</p>
+                        <div class="social-links mt-3">
+                            <a href="https://github.com/Arghya2001" target="_blank" class="text-light me-3 fs-5"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/arghyakamalmishra" target="_blank" class="text-light me-3 fs-5"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://instagram.com/Arghya09_" target="_blank" class="text-light me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li><a href="#home" class="text-secondary text-decoration-none hover-blue"><i class="fas fa-chevron-right me-2 small"></i>Home</a></li>
+                            <li><a href="#about" class="text-secondary text-decoration-none hover-blue"><i class="fas fa-chevron-right me-2 small"></i>About</a></li>
+                            <li><a href="#education" class="text-secondary text-decoration-none hover-blue"><i class="fas fa-chevron-right me-2 small"></i>Education</a></li>
+                            <li><a href="#projects" class="text-secondary text-decoration-none hover-blue"><i class="fas fa-chevron-right me-2 small"></i>Projects</a></li>
+                            <li><a href="#achievements" class="text-secondary text-decoration-none hover-blue"><i class="fas fa-chevron-right me-2 small"></i>Achievements</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h5>Contact Info</h5>
+                        <ul class="list-unstyled text-secondary mt-3">
+                            <li class="mb-2"><i class="fas fa-envelope me-2"></i>arghyakamalmishra@gmail.com</li>
+                            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Rupnarayanpur, India</li>
+                        </ul>
+                        
+                        <div class="map-container mt-3" style="height: 150px; border-radius: 8px; overflow: hidden; border: 2px solid #373b3e;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.856980645605!2d86.8778434751532!3d23.60809227874987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f7a79e6027c97f%3A0x633d39589d38c114!2sRupnarayanpur%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1714387823455!5m2!1sen!2sin" 
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="mt-5 border-secondary">
+                <div class="text-center">
+                    <p class="mb-0 text-secondary">&copy; 2026 Arghya Kamal Mishra. All Rights Reserved.</p>
+                </div>
+            </div>
+            <button id="scrollToTopBtn" title="Go to top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
