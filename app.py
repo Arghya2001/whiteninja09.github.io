@@ -1,27 +1,25 @@
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import mysql.connector
-
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-app.config['MYSQL_HOST'] = os.getenv('DB_HOST')
-app.config['MYSQL_USER'] = os.getenv('DB_USER')
-app.config['MYSQL_PASSWORD'] = os.getenv('DB_PASSWORD')
-app.config['MYSQL_DB'] = os.getenv('DB_NAME')
-
 app = Flask(__name__)
 
-# 1. Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://arghya_user:Arghya2001@localhost/portfolio_db'
+# Configuration using .env variables
+DB_HOST = os.getenv('DB_HOST')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_NAME = os.getenv('DB_NAME')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# 2. Initialize Database (The unified way)
 db = SQLAlchemy(app)
 
-# 3. Define Models
+# Models
 class Achievement(db.Model):
     __tablename__ = 'achievement'
     id = db.Column(db.Integer, primary_key=True)
@@ -31,40 +29,38 @@ class Achievement(db.Model):
     description = db.Column(db.Text)
     link = db.Column(db.String(200))
 
-# 4. Helper for Raw SQL (Projects, Skills, Education)
+# Raw SQL helper
 def get_db():
     return mysql.connector.connect(
-        host="localhost",
-        user="arghya_user",
-        password="Arghya2001",
-        database="portfolio_db"
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        database=DB_NAME
     )
 
-# 5. Routes
+# Routes
 @app.route('/')
 def index():
     conn = get_db()
     cursor = conn.cursor(dictionary=True)
-    
-    # Raw SQL Queries
+
     cursor.execute("SELECT * FROM projects")
     projects = cursor.fetchall()
 
     cursor.execute("SELECT * FROM skills ORDER BY category, level DESC")
     skills = cursor.fetchall()
-    
+
     cursor.execute("SELECT * FROM education ORDER BY year_range DESC")
     education = cursor.fetchall()
-    
+
     cursor.close()
     conn.close()
 
-    # SQLAlchemy Query
     achievements = Achievement.query.all()
-    
-    return render_template('index.html',  
+
+    return render_template('index.html',
                            projects=projects,
-                           achievements=achievements, 
+                           achievements=achievements,
                            skills=skills,
                            education=education)
 
@@ -94,11 +90,10 @@ def save_message():
     conn.commit()
     cursor.close()
     conn.close()
-    
+
     return jsonify({"status": "success", "message": "Thank you! I have received your message."})
 
 if __name__ == '__main__':
-    # Create database tables automatically if they don't exist
     with app.app_context():
         db.create_all()
     app.run(debug=True)
