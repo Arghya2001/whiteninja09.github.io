@@ -114,6 +114,17 @@ def admin_messages():
     messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).all()
     return render_template('admin_messages.html', messages=messages)
 
+@app.route('/admin/delete-message/<int:id>')
+def delete_message(id):
+    try:
+        msg = ContactMessage.query.get_or_404(id)
+        db.session.delete(msg)
+        db.session.commit()
+        return jsonify({"status": "success"})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"status": "error", "message": str(e)})
+
 # ─── Run ──────────────────────────────────────────────
 
 if __name__ == '__main__':
