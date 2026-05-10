@@ -10,9 +10,25 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" id="favicon">
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar" style="background-image: url('{{ url_for('static', filename='images/background.gif') }}'); background-size: cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
-    <div id="preloader" class="preloader-overlay">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-            <span class="visually-hidden">Loading...</span>
+    <div id="techLoader" style="
+        position:fixed;top:0;left:0;
+        width:100%;height:100%;
+        background:#0a0e1a;
+        display:flex;flex-direction:column;
+        align-items:center;justify-content:center;
+        z-index:99999;font-family:'Courier New',monospace;
+        overflow:hidden;">
+
+        <canvas id="matrix" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.18;"></canvas>
+
+        <div style="position:relative;z-index:2;text-align:center;">
+            <div style="font-size:52px;font-weight:700;letter-spacing:6px;color:#00ff88;margin-bottom:6px;">AKM</div>
+            <div style="font-size:12px;color:#4ade80;letter-spacing:3px;margin-bottom:40px;opacity:0.7;">PORTFOLIO SYSTEM v2.0</div>
+            <div style="width:280px;height:4px;background:#1a2a1a;border-radius:2px;margin:0 auto 14px;overflow:hidden;">
+            <div id="loaderBar" style="height:100%;width:0%;background:linear-gradient(90deg,#00ff88,#00ccff);transition:width 0.1s;"></div>
+            </div>
+            <div id="loaderPct" style="font-size:13px;color:#00ff88;letter-spacing:2px;margin-bottom:24px;">0%</div>
+            <div id="loaderLog" style="width:300px;text-align:left;font-size:11px;color:#2ecc71;min-height:70px;"></div>
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -301,6 +317,66 @@
         </footer>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        (function(){
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const drops = Array(Math.floor(canvas.width/16)).fill(1);
+
+        const mx = setInterval(()=>{
+            ctx.fillStyle='rgba(10,14,26,0.05)';
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.fillStyle='#00ff88';
+            ctx.font='14px Courier New';
+            drops.forEach((y,i)=>{
+            ctx.fillText(String.fromCharCode(0x30A0+Math.random()*96),i*16,y*16);
+            if(y*16>canvas.height&&Math.random()>0.975) drops[i]=0;
+            drops[i]++;
+            });
+        },50);
+
+        const logs=[
+            'Initializing neural core',
+            'Loading project modules',
+            'Connecting to database',
+            'Fetching skill matrix',
+            'Rendering UI components',
+            'Compiling achievements',
+            'Syncing education data',
+            'Building contact system',
+            'Optimizing performance',
+            'Launching portfolio'
+        ];
+
+        let pct=0, logIdx=0;
+        const bar=document.getElementById('loaderBar');
+        const pctEl=document.getElementById('loaderPct');
+        const logBox=document.getElementById('loaderLog');
+
+        const t=setInterval(()=>{
+            pct++;
+            bar.style.width=pct+'%';
+            pctEl.textContent=pct+'%';
+            if(pct%10===0&&logIdx<logs.length){
+            const line=document.createElement('div');
+            line.innerHTML=`<span style="color:#00ccff">[ OK ]</span> ${logs[logIdx++]}...`;
+            line.style.marginBottom='4px';
+            logBox.appendChild(line);
+            if(logBox.children.length>4) logBox.removeChild(logBox.firstChild);
+            }
+            if(pct>=100){
+            clearInterval(t);
+            clearInterval(mx);
+            setTimeout(()=>{
+                document.getElementById('techLoader').style.display='none';
+            },500);
+            }
+        },30);
+        })();
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
