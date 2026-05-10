@@ -108,6 +108,12 @@ def save_message():
     db.session.commit()
     return jsonify({"status": "success", "message": "Thank you! I have received your message."})
 
+
+@app.route('/admin/messages')
+def admin_messages():
+    messages = ContactMessage.query.order_by(ContactMessage.created_at.desc()).all()
+    return render_template('admin_messages.html', messages=messages)
+
 # ─── Run ──────────────────────────────────────────────
 
 if __name__ == '__main__':
