@@ -18,19 +18,36 @@ document.addEventListener("visibilitychange", () => {
 $(document).ready(function() {
     $('#contactForm').on('submit', function(e) {
         e.preventDefault();
-        
+
         let formData = $(this).serialize();
-        
+
         $.ajax({
             url: '/save-message',
             type: 'POST',
             data: formData,
             success: function(response) {
-                $('#responseMessage').text(response.message).addClass('text-success');
-                $('#contactForm')[0].reset(); // Clear the form
+                if (response.status === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent! 🎉',
+                        text: 'Thank you! I have received your message.',
+                        confirmButtonColor: '#0d6efd',
+                        confirmButtonText: 'OK',
+                        timer: 3000,
+                        timerProgressBar: true
+                    });
+                    $('#contactForm')[0].reset();
+                    $('#responseMessage').text('');
+                }
             },
             error: function() {
-                $('#responseMessage').text("Something went wrong. Please try again.").addClass('text-danger');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops! 😟',
+                    text: 'Something went wrong. Please try again.',
+                    confirmButtonColor: '#dc3545',
+                    confirmButtonText: 'Try Again'
+                });
             }
         });
     });
