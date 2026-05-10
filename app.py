@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
+from datetime import datetime, timezone, timedelta
+
+# IST = UTC + 5:30
+IST = timezone(timedelta(hours=5, minutes=30))
 
 load_dotenv()
 
@@ -157,6 +161,13 @@ def add_achievement():
     db.session.add(new_ach)
     db.session.commit()
     return "Achievement Added!"
+
+@app.template_filter('ist_time')
+def ist_time_filter(dt):
+    if dt is None:
+        return 'N/A'
+    ist_dt = dt.replace(tzinfo=timezone.utc).astimezone(IST)
+    return ist_dt.strftime('%d %b %Y, %I:%M %p')
 
 # ─── Run ──────────────────────────────────────────────
 
