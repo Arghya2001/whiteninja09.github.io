@@ -117,8 +117,14 @@
                             </div>
                         </div>
 
-                        <a href="/static/documents/Arghya's Resume.pdf" class="btn btn-warning btn-lg px-4" download>
-                            <i class="fas fa-download me-2"></i>Download Resume
+                        <!-- View Resume Button -->
+                        <a href="{{ url_for('static', filename='resume.pdf') }}" target="_blank">
+                            View Resume
+                        </a>
+
+                        <!-- Download Resume Button -->
+                        <a href="{{ url_for('static', filename='resume.pdf') }}" download="Arghya_Resume.pdf">
+                            Download Resume
                         </a>
                     </div>
                 </div>
