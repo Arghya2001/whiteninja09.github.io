@@ -57,7 +57,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center text-lg-start">
-                    <h1 class="display-3 fw-bold mb-3">Hi, <br> I'm <span style="color:#8782ee;">Arghya<span></h1>
+                    <h1>Hi,</h1>
+                    <h1>I'm <span id="typed-text"></span><span class="cursor">|</span></h1>
                     <p class="lead text-muted mb-4" style="color:blue;">Passionate Full Stack Developer crafting seamless digital experiences using Python, Flask, and modern web tech.</p>
                     
                     <div class="d-flex justify-content-center justify-content-lg-start gap-3">
@@ -376,6 +377,43 @@
             }
         },30);
         })();
+
+
+        // Typing Animation
+        const words = ["Arghya", "a Developer", "a Designer", "a Flask Dev","a Problem Solver","a Tech Enthusiast"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const current = words[wordIndex];
+            const typedText = document.getElementById("typed-text");
+
+            if (isDeleting) {
+                typedText.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedText.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Finished typing word
+            if (!isDeleting && charIndex === current.length) {
+                setTimeout(() => isDeleting = true, 1500); // pause before deleting
+            }
+
+            // Finished deleting word
+            if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+
+            const speed = isDeleting ? 80 : 120;
+            setTimeout(type, speed);
+        }
+
+        // Start typing on page load
+        window.onload = () => type();
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -256,3 +256,20 @@ footer a:hover {
     border-radius: 50%;
     font-size: 1.2rem;
 }
+
+/* Typing cursor blink */
+.cursor {
+    display: inline-block;
+    color: #7c3aed;
+    font-weight: 300;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+#typed-text {
+    color: #7c3aed;
+}

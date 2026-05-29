@@ -10,7 +10,7 @@ document.addEventListener("visibilitychange", () => {
         // User came back
         document.title = "Let's build something great! 🚀";
         // 2. Restore Original
-        favicon.href = "static/images/akm.jpg";
+        favicon.href = "static/images/AKM.jpg";
     }
 });
 
@@ -140,3 +140,4 @@ scrollToTopBtn.addEventListener("click", () => {
         behavior: 'smooth'
     });
 });
+
